@@ -27,7 +27,6 @@ public class WebSucurityConfig extends WebSecurityConfigurerAdapter {
                         .password("1")
                         .roles("USER")
                         .build();
-
         return new InMemoryUserDetailsManager(user);
     }
 }
