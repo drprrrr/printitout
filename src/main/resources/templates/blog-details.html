@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Blog of Site</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/originals/2f/ae/7b/2fae7bddbc4a43f0b1bf8662210a403c.jpg');
+        }
+        .float-container {
+            border: 3px solid #fff;
+            padding: 20px;
+        }
+
+        .float-child {
+            width: 50%;
+            padding: 20px;
+            border: 3px solid #fff;
+        }
+    </style>
+</head>
+<body class="text-light bg-dark">
+<header th:insert="blocks/header :: header"></header>
+<div class="container w-25 mt-5">
+    <div th:each="el : ${order}" class="alert alert-warn mt-2 float-container">
+        <img th:src="${el.imageurl}" class="bd-placeholder-img card-img-top"  height=100%/>
+        <h1 th:text="${el.title}"></h1>
+        <p th:text="${el.description}"></p>
+        <p th:text="${el.color}"></p>
+        <p th:text="${el.material}"></p>
+        <p th:text="${el.parameters}"></p>
+        <p><a th:href="${el.stlFile}">Go to page</a></p>
+        <p th:text="${el.phoneNumber}"></p>
+
+        <a th:href="'/blog/' + ${el.id} + '/edit'" class="btn btn-warning">Edit</a>
+        <form th:action="'/blog/' + ${el.id} + '/remove'" method="post">
+            <button class="btn btn-warning mt-2" type="submit">Delete</button>
+        </form>
+    </div>
+    <footer th:insert="blocks/footer :: footer"></footer>
+</div>
+</body>
+</html>

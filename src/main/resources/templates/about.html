@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}">Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="text-light bg-dark">
+<header th:insert="blocks/header :: header"></header>
+<div class="container mt-5">
+    <h1 th:text="${title }"></h1>
+    <p class="text-light bg-dark">Here you can send parameters of your figure, provide a .stl file and place your order to be printed.</p>
+    <p class="w-75 text-light bg-dark ">After your order is placed we will contact by telephone and discuss your project, delivery time, if it is printable or not, how much the cost is. We will inform you as soon as your order is printed out.</p>
+    <p><a href="swagger-ui.html">Api Documentation</a></p>
+    <footer th:insert="blocks/footer :: footer"></footer>
+</div>
+
+</body>
+</html>

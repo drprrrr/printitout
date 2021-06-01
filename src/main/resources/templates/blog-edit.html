@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/originals/2f/ae/7b/2fae7bddbc4a43f0b1bf8662210a403c.jpg');
+        }
+        .float-container {
+            border: 3px solid #fff;
+            padding: 20px;
+        }
+
+        .float-child {
+            width: 50%;
+            padding: 20px;
+            border: 3px solid #fff;
+        }
+    </style>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div class="text-light">
+<div class="container mt-5 mb-5">
+    <h1>Edit article</h1>
+
+    <div th:each="el : ${post}">
+        <form method="post">
+            <input type="text" th:value="${el.title}" name="title" placeholder="Type a title" class="form-control"><br>
+            <textarea name="description" placeholder="Type a description" class="form-control" th:text="${el.description}"/><br>
+            <textarea name="imageurl" placeholder="URL of the image" class="form-control" th:text="${el.imageurl}"/><br>
+            <input type="text" th:value="${el.color}" name="color" placeholder="Provide a hexadecimal code" class="form-control"><br>
+            <input type="text" th:value = "${el.material}" name="material" placeholder="pla, abs or other" class="form-control"><br>
+            <input type="text" th:value = "${el.parameters}" name="parameters" placeholder="20х20х22 is max" class="form-control"><br>
+            <input type="text" th:value = "${el.stlFile}" name="stlFile" placeholder="Link to stlFile" class="form-control"><br>
+            <input type="text" th:value = "${el.phoneNumber}" name="phoneNumber" placeholder="Your phone number" class="form-control"><br>
+            <button type="submit" class="btn btn-info">Update</button>
+        </form>
+    </div>
+
+
+    <footer th:insert="blocks/footer :: footer"></footer>
+</div>
+</div>
+</body>
+</html>
